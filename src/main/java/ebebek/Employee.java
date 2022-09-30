@@ -1,17 +1,17 @@
 package ebebek;
 public class Employee {
     private String name;
-    private Double salary;
-    private int workHours;
+    private double salary;
+    private double workHours;
     private int hireYear;
-    public Employee(String name, Double salary, int workHours, int hireYear) {
+    public Employee(String name, double salary, double workHours, int hireYear) {
         this.name = name;
         this.salary = salary;
         this.workHours = workHours;
         this.hireYear = hireYear;
     }
-    public double toplamMaas(double taxHesapla, double bonusHesapla, double raiseSalaryy, Double salary) {
-        double toplamMaasDegeri = salary + bonusHesapla + raiseSalaryy - taxHesapla;
+    public double toplamMaas(double workHours, int hireYear, double salary) {
+        double toplamMaasDegeri = salary - taxHesapla(salary) + bonusHesapla(workHours) + raiseSalaryy(hireYear, salary);
         return toplamMaasDegeri;
     }
     public double raiseSalaryy(int hireYear, double salary) {
@@ -51,7 +51,7 @@ public class Employee {
                 ", Vergi=" + taxHesapla(salary) +
                 ", Bonus=" + bonusHesapla(workHours) +
                 ", Maas Artisi=" + raiseSalaryy(hireYear, salary) +
-                ", Toplam Maas=" + toplamMaas(taxHesapla(salary), bonusHesapla(workHours), raiseSalaryy(hireYear, salary), salary) +
+                ", Toplam Maas=" + toplamMaas( workHours,  hireYear,  salary) +
                 '}';
     }
 
